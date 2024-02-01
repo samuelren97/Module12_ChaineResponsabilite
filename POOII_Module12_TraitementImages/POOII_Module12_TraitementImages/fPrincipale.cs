@@ -1,8 +1,8 @@
 namespace POOII_Module12_TraitementImages
 {
-    public partial class Form1 : Form
+    public partial class fPrincipale : Form
     {
-        public Form1()
+        public fPrincipale()
         {
             InitializeComponent();
         }
