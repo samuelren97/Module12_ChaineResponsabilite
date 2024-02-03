@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             msPrincipal = new MenuStrip();
-            fichierToolStripMenuItem = new ToolStripMenuItem();
+            tsmiFichier = new ToolStripMenuItem();
+            tsfmiOuvrir = new ToolStripMenuItem();
             scPrincipal = new SplitContainer();
             scSuiteTraitements = new SplitContainer();
             lbSuiteTraitementAAppliquer = new ListBox();
@@ -62,23 +63,33 @@
             // msPrincipal
             // 
             msPrincipal.ImageScalingSize = new Size(20, 20);
-            msPrincipal.Items.AddRange(new ToolStripItem[] { fichierToolStripMenuItem });
+            msPrincipal.Items.AddRange(new ToolStripItem[] { tsmiFichier });
             msPrincipal.Location = new Point(0, 0);
             msPrincipal.Name = "msPrincipal";
-            msPrincipal.Size = new Size(1384, 28);
+            msPrincipal.Padding = new Padding(5, 2, 0, 2);
+            msPrincipal.Size = new Size(1213, 24);
             msPrincipal.TabIndex = 0;
             msPrincipal.Text = "menuStrip1";
             // 
-            // fichierToolStripMenuItem
+            // tsmiFichier
             // 
-            fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            fichierToolStripMenuItem.Size = new Size(66, 24);
-            fichierToolStripMenuItem.Text = "&Fichier";
+            tsmiFichier.DropDownItems.AddRange(new ToolStripItem[] { tsfmiOuvrir });
+            tsmiFichier.Name = "tsmiFichier";
+            tsmiFichier.Size = new Size(54, 20);
+            tsmiFichier.Text = "&Fichier";
+            // 
+            // tsfmiOuvrir
+            // 
+            tsfmiOuvrir.Name = "tsfmiOuvrir";
+            tsfmiOuvrir.Size = new Size(107, 22);
+            tsfmiOuvrir.Text = "&Ouvrir";
             // 
             // scPrincipal
             // 
+            scPrincipal.BorderStyle = BorderStyle.Fixed3D;
             scPrincipal.Dock = DockStyle.Fill;
-            scPrincipal.Location = new Point(0, 28);
+            scPrincipal.Location = new Point(0, 24);
+            scPrincipal.Margin = new Padding(3, 2, 3, 2);
             scPrincipal.Name = "scPrincipal";
             // 
             // scPrincipal.Panel1
@@ -88,14 +99,16 @@
             // scPrincipal.Panel2
             // 
             scPrincipal.Panel2.Controls.Add(pCanvas);
-            scPrincipal.Size = new Size(1384, 605);
-            scPrincipal.SplitterDistance = 336;
+            scPrincipal.Size = new Size(1213, 457);
+            scPrincipal.SplitterDistance = 294;
             scPrincipal.TabIndex = 1;
             // 
             // scSuiteTraitements
             // 
+            scSuiteTraitements.BorderStyle = BorderStyle.Fixed3D;
             scSuiteTraitements.Dock = DockStyle.Fill;
             scSuiteTraitements.Location = new Point(0, 0);
+            scSuiteTraitements.Margin = new Padding(3, 2, 3, 2);
             scSuiteTraitements.Name = "scSuiteTraitements";
             scSuiteTraitements.Orientation = Orientation.Horizontal;
             // 
@@ -108,35 +121,39 @@
             // scSuiteTraitements.Panel2
             // 
             scSuiteTraitements.Panel2.Controls.Add(pgProprieteTraitementSelectionne);
-            scSuiteTraitements.Size = new Size(336, 605);
-            scSuiteTraitements.SplitterDistance = 296;
+            scSuiteTraitements.Size = new Size(294, 457);
+            scSuiteTraitements.SplitterDistance = 223;
+            scSuiteTraitements.SplitterWidth = 3;
             scSuiteTraitements.TabIndex = 0;
             // 
             // lbSuiteTraitementAAppliquer
             // 
             lbSuiteTraitementAAppliquer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lbSuiteTraitementAAppliquer.FormattingEnabled = true;
-            lbSuiteTraitementAAppliquer.ItemHeight = 20;
-            lbSuiteTraitementAAppliquer.Location = new Point(3, 106);
+            lbSuiteTraitementAAppliquer.ItemHeight = 15;
+            lbSuiteTraitementAAppliquer.Location = new Point(3, 80);
+            lbSuiteTraitementAAppliquer.Margin = new Padding(3, 2, 3, 2);
             lbSuiteTraitementAAppliquer.Name = "lbSuiteTraitementAAppliquer";
-            lbSuiteTraitementAAppliquer.Size = new Size(330, 124);
+            lbSuiteTraitementAAppliquer.Size = new Size(285, 79);
             lbSuiteTraitementAAppliquer.TabIndex = 2;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.Controls.Add(bAppliquerSuiteTraitement);
-            panel1.Location = new Point(6, 229);
+            panel1.Location = new Point(5, 169);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(324, 51);
+            panel1.Size = new Size(280, 38);
             panel1.TabIndex = 1;
             // 
             // bAppliquerSuiteTraitement
             // 
             bAppliquerSuiteTraitement.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            bAppliquerSuiteTraitement.Location = new Point(0, 11);
+            bAppliquerSuiteTraitement.Location = new Point(0, 8);
+            bAppliquerSuiteTraitement.Margin = new Padding(3, 2, 3, 2);
             bAppliquerSuiteTraitement.Name = "bAppliquerSuiteTraitement";
-            bAppliquerSuiteTraitement.Size = new Size(324, 29);
+            bAppliquerSuiteTraitement.Size = new Size(280, 22);
             bAppliquerSuiteTraitement.TabIndex = 0;
             bAppliquerSuiteTraitement.Text = "Appliquer";
             bAppliquerSuiteTraitement.UseVisualStyleBackColor = true;
@@ -149,17 +166,19 @@
             pControlSuiteTraitements.Controls.Add(bSuiteTraitementDeplacerBas);
             pControlSuiteTraitements.Controls.Add(bSuiteTraitementDeplacerHaut);
             pControlSuiteTraitements.Controls.Add(cbTraitementAAjouter);
-            pControlSuiteTraitements.Location = new Point(3, 3);
+            pControlSuiteTraitements.Location = new Point(3, 2);
+            pControlSuiteTraitements.Margin = new Padding(3, 2, 3, 2);
             pControlSuiteTraitements.Name = "pControlSuiteTraitements";
-            pControlSuiteTraitements.Size = new Size(330, 97);
+            pControlSuiteTraitements.Size = new Size(285, 73);
             pControlSuiteTraitements.TabIndex = 0;
             // 
             // bSupprimerTraitement
             // 
             bSupprimerTraitement.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            bSupprimerTraitement.Location = new Point(293, 56);
+            bSupprimerTraitement.Location = new Point(252, 42);
+            bSupprimerTraitement.Margin = new Padding(3, 2, 3, 2);
             bSupprimerTraitement.Name = "bSupprimerTraitement";
-            bSupprimerTraitement.Size = new Size(32, 29);
+            bSupprimerTraitement.Size = new Size(28, 22);
             bSupprimerTraitement.TabIndex = 4;
             bSupprimerTraitement.Text = "-";
             bSupprimerTraitement.UseVisualStyleBackColor = true;
@@ -167,27 +186,30 @@
             // bAjouterTraitement
             // 
             bAjouterTraitement.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            bAjouterTraitement.Location = new Point(255, 56);
+            bAjouterTraitement.Location = new Point(219, 42);
+            bAjouterTraitement.Margin = new Padding(3, 2, 3, 2);
             bAjouterTraitement.Name = "bAjouterTraitement";
-            bAjouterTraitement.Size = new Size(32, 29);
+            bAjouterTraitement.Size = new Size(28, 22);
             bAjouterTraitement.TabIndex = 3;
             bAjouterTraitement.Text = "+";
             bAjouterTraitement.UseVisualStyleBackColor = true;
             // 
             // bSuiteTraitementDeplacerBas
             // 
-            bSuiteTraitementDeplacerBas.Location = new Point(48, 56);
+            bSuiteTraitementDeplacerBas.Location = new Point(42, 42);
+            bSuiteTraitementDeplacerBas.Margin = new Padding(3, 2, 3, 2);
             bSuiteTraitementDeplacerBas.Name = "bSuiteTraitementDeplacerBas";
-            bSuiteTraitementDeplacerBas.Size = new Size(33, 29);
+            bSuiteTraitementDeplacerBas.Size = new Size(29, 22);
             bSuiteTraitementDeplacerBas.TabIndex = 2;
             bSuiteTraitementDeplacerBas.Text = "v";
             bSuiteTraitementDeplacerBas.UseVisualStyleBackColor = true;
             // 
             // bSuiteTraitementDeplacerHaut
             // 
-            bSuiteTraitementDeplacerHaut.Location = new Point(9, 56);
+            bSuiteTraitementDeplacerHaut.Location = new Point(8, 42);
+            bSuiteTraitementDeplacerHaut.Margin = new Padding(3, 2, 3, 2);
             bSuiteTraitementDeplacerHaut.Name = "bSuiteTraitementDeplacerHaut";
-            bSuiteTraitementDeplacerHaut.Size = new Size(33, 29);
+            bSuiteTraitementDeplacerHaut.Size = new Size(29, 22);
             bSuiteTraitementDeplacerHaut.TabIndex = 1;
             bSuiteTraitementDeplacerHaut.Text = "^";
             bSuiteTraitementDeplacerHaut.UseVisualStyleBackColor = true;
@@ -195,48 +217,57 @@
             // cbTraitementAAjouter
             // 
             cbTraitementAAjouter.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbTraitementAAjouter.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTraitementAAjouter.FormattingEnabled = true;
-            cbTraitementAAjouter.Location = new Point(3, 3);
+            cbTraitementAAjouter.Location = new Point(3, 2);
+            cbTraitementAAjouter.Margin = new Padding(3, 2, 3, 2);
             cbTraitementAAjouter.Name = "cbTraitementAAjouter";
-            cbTraitementAAjouter.Size = new Size(324, 28);
+            cbTraitementAAjouter.Size = new Size(280, 23);
             cbTraitementAAjouter.TabIndex = 0;
             // 
             // pgProprieteTraitementSelectionne
             // 
             pgProprieteTraitementSelectionne.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pgProprieteTraitementSelectionne.Location = new Point(3, 3);
+            pgProprieteTraitementSelectionne.Location = new Point(3, 2);
+            pgProprieteTraitementSelectionne.Margin = new Padding(3, 2, 3, 2);
             pgProprieteTraitementSelectionne.Name = "pgProprieteTraitementSelectionne";
-            pgProprieteTraitementSelectionne.Size = new Size(332, 290);
+            pgProprieteTraitementSelectionne.Size = new Size(286, 218);
             pgProprieteTraitementSelectionne.TabIndex = 0;
             // 
             // pCanvas
             // 
-            pCanvas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pCanvas.AutoScroll = true;
+            pCanvas.BackColor = Color.White;
             pCanvas.Controls.Add(pbImage);
-            pCanvas.Location = new Point(3, 3);
+            pCanvas.Dock = DockStyle.Fill;
+            pCanvas.Location = new Point(0, 0);
+            pCanvas.Margin = new Padding(3, 2, 3, 2);
             pCanvas.Name = "pCanvas";
-            pCanvas.Size = new Size(1038, 599);
+            pCanvas.Size = new Size(911, 453);
             pCanvas.TabIndex = 0;
             // 
             // pbImage
             // 
-            pbImage.Location = new Point(3, 3);
+            pbImage.Location = new Point(3, 2);
+            pbImage.Margin = new Padding(3, 2, 3, 2);
             pbImage.Name = "pbImage";
-            pbImage.Size = new Size(125, 62);
+            pbImage.Size = new Size(109, 46);
+            pbImage.SizeMode = PictureBoxSizeMode.AutoSize;
             pbImage.TabIndex = 0;
             pbImage.TabStop = false;
             // 
             // fPrincipale
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1384, 633);
+            ClientSize = new Size(1213, 481);
             Controls.Add(scPrincipal);
             Controls.Add(msPrincipal);
             MainMenuStrip = msPrincipal;
-            MinimumSize = new Size(1402, 680);
+            Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(1229, 520);
             Name = "fPrincipale";
-            Text = "Form1";
+            Text = "Traitement d'images";
             msPrincipal.ResumeLayout(false);
             msPrincipal.PerformLayout();
             scPrincipal.Panel1.ResumeLayout(false);
@@ -250,6 +281,7 @@
             panel1.ResumeLayout(false);
             pControlSuiteTraitements.ResumeLayout(false);
             pCanvas.ResumeLayout(false);
+            pCanvas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -258,7 +290,7 @@
         #endregion
 
         private MenuStrip msPrincipal;
-        private ToolStripMenuItem fichierToolStripMenuItem;
+        private ToolStripMenuItem tsmiFichier;
         private SplitContainer scPrincipal;
         private SplitContainer scSuiteTraitements;
         private Panel pControlSuiteTraitements;
@@ -273,5 +305,6 @@
         private PropertyGrid pgProprieteTraitementSelectionne;
         private Panel pCanvas;
         private PictureBox pbImage;
+        private ToolStripMenuItem tsfmiOuvrir;
     }
 }
