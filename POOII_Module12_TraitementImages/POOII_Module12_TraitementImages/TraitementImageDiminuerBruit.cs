@@ -10,8 +10,7 @@ namespace POOII_Module12_TraitementImages
     [Description("Diminuer le bruit")]
     public class TraitementImageDiminuerBruit : TraitementImageMasque
     {
-        public TraitementImageDiminuerBruit(int p_largeur, Func<byte[], byte> p_transformation) : 
-            base(p_largeur, p_transformation)
+        public TraitementImageDiminuerBruit()
         {
             ;
         }
@@ -25,7 +24,7 @@ namespace POOII_Module12_TraitementImages
 
         public override string ToString()
         {
-            return "Diminuer le bruit";
+            return UtilitaireTraitements.DescriptionTraitement(this);
         }
     }
 }

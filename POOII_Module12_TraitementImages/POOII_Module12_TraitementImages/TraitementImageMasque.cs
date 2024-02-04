@@ -10,6 +10,7 @@ namespace POOII_Module12_TraitementImages
     [Description("Masque")]
     public class TraitementImageMasque : ITraitementImage
     {
+        [Browsable(false)]
         public ITraitementImage? Suivant { get; set; }
 
         private int m_largeur;
@@ -37,15 +38,25 @@ namespace POOII_Module12_TraitementImages
 
         private Func<byte[], byte> m_transformation;
 
-        public TraitementImageMasque(int p_largeur, Func<byte[], byte> p_transformation)
+        [Browsable(false)]
+        public Func<byte[], byte> Transformation
         {
-            if (p_transformation is null)
+            get
+            { return m_transformation; }
+            set
             {
-                throw new ArgumentNullException(
-                    nameof(p_transformation), "La fonction de transformation ne peut pas être null");
+                if (value is null)
+                {
+                    throw new ArgumentNullException(
+                        nameof(value), "La fonction de transformation ne peut pas être null");
+                }
+                m_transformation = value;
             }
-            this.Largeur = p_largeur;
-            this.m_transformation = p_transformation;
+        }
+
+        public TraitementImageMasque()
+        {
+            ;
         }
 
         public object Clone()
@@ -90,7 +101,7 @@ namespace POOII_Module12_TraitementImages
 
         public override string ToString()
         {
-            return "Masque";
+            return UtilitaireTraitements.DescriptionTraitement(this);
         }
     }
 }

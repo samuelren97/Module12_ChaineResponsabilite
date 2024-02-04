@@ -83,6 +83,7 @@
             tsfmiOuvrir.Name = "tsfmiOuvrir";
             tsfmiOuvrir.Size = new Size(107, 22);
             tsfmiOuvrir.Text = "&Ouvrir";
+            tsfmiOuvrir.Click += tsfmiOuvrir_Click;
             // 
             // scPrincipal
             // 
@@ -136,6 +137,7 @@
             lbSuiteTraitementAAppliquer.Name = "lbSuiteTraitementAAppliquer";
             lbSuiteTraitementAAppliquer.Size = new Size(285, 79);
             lbSuiteTraitementAAppliquer.TabIndex = 2;
+            lbSuiteTraitementAAppliquer.SelectedIndexChanged += lbSuiteTraitementAAppliquer_SelectedIndexChanged;
             // 
             // panel1
             // 
@@ -157,6 +159,7 @@
             bAppliquerSuiteTraitement.TabIndex = 0;
             bAppliquerSuiteTraitement.Text = "Appliquer";
             bAppliquerSuiteTraitement.UseVisualStyleBackColor = true;
+            bAppliquerSuiteTraitement.Click += bAppliquerSuiteTraitement_Click;
             // 
             // pControlSuiteTraitements
             // 
@@ -182,6 +185,7 @@
             bSupprimerTraitement.TabIndex = 4;
             bSupprimerTraitement.Text = "-";
             bSupprimerTraitement.UseVisualStyleBackColor = true;
+            bSupprimerTraitement.Click += bSupprimerTraitement_Click;
             // 
             // bAjouterTraitement
             // 
@@ -193,6 +197,7 @@
             bAjouterTraitement.TabIndex = 3;
             bAjouterTraitement.Text = "+";
             bAjouterTraitement.UseVisualStyleBackColor = true;
+            bAjouterTraitement.Click += bAjouterTraitement_Click;
             // 
             // bSuiteTraitementDeplacerBas
             // 
@@ -203,6 +208,7 @@
             bSuiteTraitementDeplacerBas.TabIndex = 2;
             bSuiteTraitementDeplacerBas.Text = "v";
             bSuiteTraitementDeplacerBas.UseVisualStyleBackColor = true;
+            bSuiteTraitementDeplacerBas.Click += bSuiteTraitementDeplacerBas_Click;
             // 
             // bSuiteTraitementDeplacerHaut
             // 
@@ -213,6 +219,7 @@
             bSuiteTraitementDeplacerHaut.TabIndex = 1;
             bSuiteTraitementDeplacerHaut.Text = "^";
             bSuiteTraitementDeplacerHaut.UseVisualStyleBackColor = true;
+            bSuiteTraitementDeplacerHaut.Click += bSuiteTraitementDeplacerHaut_Click;
             // 
             // cbTraitementAAjouter
             // 
@@ -231,7 +238,7 @@
             pgProprieteTraitementSelectionne.Location = new Point(3, 2);
             pgProprieteTraitementSelectionne.Margin = new Padding(3, 2, 3, 2);
             pgProprieteTraitementSelectionne.Name = "pgProprieteTraitementSelectionne";
-            pgProprieteTraitementSelectionne.Size = new Size(286, 218);
+            pgProprieteTraitementSelectionne.Size = new Size(286, 226);
             pgProprieteTraitementSelectionne.TabIndex = 0;
             // 
             // pCanvas
@@ -268,6 +275,7 @@
             MinimumSize = new Size(1229, 520);
             Name = "fPrincipale";
             Text = "Traitement d'images";
+            Load += fPrincipale_Load;
             msPrincipal.ResumeLayout(false);
             msPrincipal.PerformLayout();
             scPrincipal.Panel1.ResumeLayout(false);

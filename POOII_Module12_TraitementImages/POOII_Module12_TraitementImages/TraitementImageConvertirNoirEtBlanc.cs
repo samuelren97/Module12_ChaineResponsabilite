@@ -10,6 +10,7 @@ namespace POOII_Module12_TraitementImages
     [Description("Convertir en noir et blanc")]
     public class TraitementImageConvertirNoirEtBlanc : ITraitementImage
     {
+        [Browsable(false)]
         public ITraitementImage? Suivant { get; set; }
 
         public object Clone()
@@ -34,7 +35,7 @@ namespace POOII_Module12_TraitementImages
 
         public override string ToString()
         {
-            return "Convertir en noir et blanc";
+            return UtilitaireTraitements.DescriptionTraitement(this);
         }
     }
 }

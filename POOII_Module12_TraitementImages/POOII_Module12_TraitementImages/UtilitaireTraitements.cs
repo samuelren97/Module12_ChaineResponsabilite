@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TraitementImagesLib
+namespace POOII_Module12_TraitementImages
 {
     public class UtilitaireTraitements
     {

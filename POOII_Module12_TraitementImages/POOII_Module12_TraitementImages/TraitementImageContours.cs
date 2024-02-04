@@ -10,8 +10,8 @@ namespace POOII_Module12_TraitementImages
     [Description("Contours")]
     public class TraitementImageContours : TraitementImageMasque
     {
-        public TraitementImageContours(int p_largeur, Func<byte[], byte> p_transformation) : 
-            base(p_largeur, p_transformation)
+
+        public TraitementImageContours()
         {
             ;
         }
@@ -35,7 +35,7 @@ namespace POOII_Module12_TraitementImages
 
         public override string ToString()
         {
-            return "Contours";
+            return UtilitaireTraitements.DescriptionTraitement(this);
         }
     }
 }

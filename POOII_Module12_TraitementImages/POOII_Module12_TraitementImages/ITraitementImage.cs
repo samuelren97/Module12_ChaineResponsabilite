@@ -8,6 +8,7 @@ namespace POOII_Module12_TraitementImages
 {
     public interface ITraitementImage : ICloneable
     {
+        public ITraitementImage? Suivant { get; set; }
         object Clone();
         void TraiterImage(ImageManipulable p_image);
     }

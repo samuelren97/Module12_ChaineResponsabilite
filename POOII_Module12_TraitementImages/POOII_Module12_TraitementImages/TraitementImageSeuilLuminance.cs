@@ -10,9 +10,11 @@ namespace POOII_Module12_TraitementImages
     [Description("Seuil luminance")]
     public class TraitementImageSeuilLuminance : ITraitementImage
     {
-        public ITraitementImage? Suivant { get; set; }
 
         public int Seuil { get; set; }
+
+        [Browsable(false)]
+        public ITraitementImage? Suivant { get; set; }
 
         public object Clone()
         {
@@ -41,7 +43,7 @@ namespace POOII_Module12_TraitementImages
 
         public override string ToString()
         {
-            return "Seuil luminance";
+            return UtilitaireTraitements.DescriptionTraitement(this);
         }
     }
 }

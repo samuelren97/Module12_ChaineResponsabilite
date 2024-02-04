@@ -10,8 +10,7 @@ namespace POOII_Module12_TraitementImages
     [Description("Flou")]
     public class TraitementImageFlou : TraitementImageMasque
     {
-        public TraitementImageFlou(int p_largeur, Func<byte[], byte> p_transformation) : 
-            base(p_largeur, p_transformation)
+        public TraitementImageFlou()
         {
             ;
         }
@@ -29,7 +28,7 @@ namespace POOII_Module12_TraitementImages
 
         public override string ToString()
         {
-            return "Flou";
+            return UtilitaireTraitements.DescriptionTraitement(this);
         }
     }
 }
