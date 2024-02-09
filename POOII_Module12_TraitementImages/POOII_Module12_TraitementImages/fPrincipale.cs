@@ -26,6 +26,9 @@ namespace POOII_Module12_TraitementImages
             {
                 m_imageManipulable = new ImageManipulable(ofd.FileName);
                 pbImage.Image = m_imageManipulable.Image;
+                this.m_suiteTraitementImage.Clear();
+                this.pgProprieteTraitementSelectionne.SelectedObject = null;
+                MettreAJourListBox();
             }
         }
 
@@ -67,6 +70,10 @@ namespace POOII_Module12_TraitementImages
             if (this.lbSuiteTraitementAAppliquer.SelectedIndex != -1)
             {
                 this.m_suiteTraitementImage.RemoveAt(this.lbSuiteTraitementAAppliquer.SelectedIndex);
+                if (this.m_suiteTraitementImage.Count > 0)
+                {
+                    this.m_suiteTraitementImage[this.m_suiteTraitementImage.Count - 1].Suivant = null;
+                }
                 MettreAJourListBox();
             }
         }
@@ -88,12 +95,59 @@ namespace POOII_Module12_TraitementImages
 
         private void bAppliquerSuiteTraitement_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.m_suiteTraitementImage.Count-2; i++)
+            bool peutContinuer = m_imageManipulable is not null;
+            if (!peutContinuer)
             {
-                this.m_suiteTraitementImage[i].Suivant = this.m_suiteTraitementImage[i + 1];
+                AfficherMessageErreur("Aucune image n'a été chargée.");
             }
+            else if (this.m_suiteTraitementImage.Count > 0)
+            {
+                bool aErreur = false;
+                for (int i = 0; !aErreur && i < this.m_suiteTraitementImage.Count - 1; ++i)
+                {
+                    if (this.m_suiteTraitementImage[i] is TraitementImageMasque)
+                    {
+                        if (!EstLargeurValide(this.m_suiteTraitementImage[i] as TraitementImageMasque))
+                        {
+                            aErreur = true;
+                            AfficherMessageErreur("La largeur du masque doit être impaire.");
+                        }
+                    }
 
-            this.m_suiteTraitementImage[0].TraiterImage(m_imageManipulable);
+                    if (!aErreur)
+                    {
+                        this.m_suiteTraitementImage[i].Suivant = this.m_suiteTraitementImage[i + 1];
+                    }
+                }
+
+                if (!aErreur)
+                {
+                    TraitementImageMasque? masque = this.m_suiteTraitementImage[0] as TraitementImageMasque;
+
+                    if (masque is not null && !EstLargeurValide(masque))
+                    {
+                        AfficherMessageErreur("La largeur du masque doit être impaire.");
+                    }
+                    else
+                    {
+                        this.m_suiteTraitementImage[0].TraiterImage(this.m_imageManipulable);
+                        pbImage.Image = this.m_imageManipulable.Image;
+                    }
+                }
+            } else
+            {
+                AfficherMessageErreur("Aucun traitement(s) à appliquer.");
+            }
+        }
+
+        private bool EstLargeurValide(TraitementImageMasque? p_traitementImageMasque)
+        {
+            return (p_traitementImageMasque is null) ? true : (p_traitementImageMasque.Largeur & 1) == 1;
+        }
+
+        private void AfficherMessageErreur(string p_message)
+        {
+            MessageBox.Show(p_message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace POOII_Module12_TraitementImages
     {
         public TraitementImageFlou()
         {
-            ;
+            this.Transformation = TraiterDonnees;
         }
 
         private static byte TraiterDonnees(byte[] p_donnees)

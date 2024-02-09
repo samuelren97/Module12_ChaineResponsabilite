@@ -238,7 +238,7 @@
             pgProprieteTraitementSelectionne.Location = new Point(3, 2);
             pgProprieteTraitementSelectionne.Margin = new Padding(3, 2, 3, 2);
             pgProprieteTraitementSelectionne.Name = "pgProprieteTraitementSelectionne";
-            pgProprieteTraitementSelectionne.Size = new Size(286, 226);
+            pgProprieteTraitementSelectionne.Size = new Size(286, 227);
             pgProprieteTraitementSelectionne.TabIndex = 0;
             // 
             // pCanvas

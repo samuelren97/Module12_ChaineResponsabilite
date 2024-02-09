@@ -7,34 +7,13 @@ using System.Threading.Tasks;
 
 namespace POOII_Module12_TraitementImages
 {
-    [Description("Masque")]
-    public class TraitementImageMasque : ITraitementImage
+    public abstract class TraitementImageMasque : ITraitementImage
     {
         [Browsable(false)]
         public ITraitementImage? Suivant { get; set; }
 
         private int m_largeur;
-        public int Largeur
-        {
-            get 
-            { 
-                return m_largeur;
-            }
-            set 
-            {
-                if ((value & 1) == 0) // pair
-                {
-                    throw new ArgumentOutOfRangeException(
-                        nameof(value), "La largeur doit être impaire");
-                }
-                if (value < 1)
-                {
-                    throw new ArgumentOutOfRangeException(
-                        nameof(value), "La largeur doit être supérieure à 0");
-                }
-                this.m_largeur = value; 
-            }
-        }
+        public int Largeur { get; set; }
 
         private Func<byte[], byte> m_transformation;
 
@@ -42,7 +21,7 @@ namespace POOII_Module12_TraitementImages
         public Func<byte[], byte> Transformation
         {
             get
-            { return m_transformation; }
+            { return this.m_transformation;  }
             set
             {
                 if (value is null)
@@ -52,11 +31,6 @@ namespace POOII_Module12_TraitementImages
                 }
                 m_transformation = value;
             }
-        }
-
-        public TraitementImageMasque()
-        {
-            ;
         }
 
         public object Clone()
@@ -97,11 +71,6 @@ namespace POOII_Module12_TraitementImages
             Array.Copy(res, raw, raw.Length);
 
             this.Suivant?.TraiterImage(p_image);
-        }
-
-        public override string ToString()
-        {
-            return UtilitaireTraitements.DescriptionTraitement(this);
         }
     }
 }

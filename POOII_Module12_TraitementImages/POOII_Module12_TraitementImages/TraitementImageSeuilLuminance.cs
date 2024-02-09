@@ -11,14 +11,19 @@ namespace POOII_Module12_TraitementImages
     public class TraitementImageSeuilLuminance : ITraitementImage
     {
 
-        public int Seuil { get; set; }
+        public byte Seuil { get; set; }
 
         [Browsable(false)]
         public ITraitementImage? Suivant { get; set; }
 
+        public TraitementImageSeuilLuminance()
+        {
+            this.Seuil = 255;
+        }
+
         public object Clone()
         {
-            throw new NotImplementedException();
+            return this.MemberwiseClone();
         }
 
         public void TraiterImage(ImageManipulable p_image)

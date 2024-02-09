@@ -13,7 +13,7 @@ namespace POOII_Module12_TraitementImages
 
         public TraitementImageContours()
         {
-            ;
+            this.Transformation = TraiterDonnees;
         }
 
         private static byte TraiterDonnees(byte[] p_donnees)
